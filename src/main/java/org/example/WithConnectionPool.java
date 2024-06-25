@@ -1,13 +1,17 @@
 package org.example;
 
+import org.example.connectionpool.ConnectionPool;
+import org.example.connectionpool.IConnectionPool;
+import org.example.util.DateUtil;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class WithConnectionPool {
-    private final ConnectionPool connectionPool;
+    private final IConnectionPool connectionPool;
 
-    public WithConnectionPool(ConnectionPool connectionPool) {
+    public WithConnectionPool(IConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
 
@@ -27,7 +31,7 @@ public class WithConnectionPool {
 
             // Processing the result
             if (rs.next()) {
-                System.out.println(Thread.currentThread().getName() + " " + "SLEEP executed successfully");
+                System.out.println(DateUtil.getDate() + " " +Thread.currentThread().getName() + " " + "SLEEP executed successfully");
             }
 
             // Closing resources

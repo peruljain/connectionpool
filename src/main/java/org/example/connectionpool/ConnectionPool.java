@@ -1,10 +1,12 @@
-package org.example;
+package org.example.connectionpool;
+
+import org.example.ConnectionProvider;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Queue;
 
-public class ConnectionPool {
+public class ConnectionPool implements IConnectionPool{
     private final Queue<Connection> connections;
 
     public ConnectionPool(Queue<Connection> connections) {
